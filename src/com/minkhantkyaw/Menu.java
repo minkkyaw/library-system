@@ -1,7 +1,5 @@
 package com.minkhantkyaw;
 
-import sun.security.krb5.internal.crypto.Des;
-
 import javax.management.Descriptor;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,12 +10,12 @@ import java.util.Map;
 public class Menu implements Document {
     private int menuID;
     private String description;
-    private final Map<Integer, SubMenu> subMenus;
+    private final Map<Integer, Document> subMenus;
 
     public Menu(int menuID, String description) {
         this.menuID=menuID;
         this.description= description;
-        this.subMenus = new HashMap<Integer, SubMenu>();
+        this.subMenus = new HashMap<Integer, Document>();
     }
 
     @Override
@@ -29,12 +27,12 @@ public class Menu implements Document {
     public String getDescription() {
         return description;
     }
-
+    @Override
     public void addSubmenu(int submenuID, SubMenu subMenu) {
         subMenus.put(submenuID, subMenu);
     }
-
-    public Map<Integer, SubMenu> getSubmenus() {
+    @Override
+    public Map<Integer, Document> getSubmenus() {
         return subMenus;
     }
 }

@@ -6,15 +6,13 @@ import java.util.Map;
 /**
  * Created by dev on 8/12/2015.
  */
-public class SubMenu implements Document{
+public class SubMenu implements Document {
     private int menuID;
     private String description;
-    private final Map<Integer, Item> items;
 
     public SubMenu(int menuID, String description) {
-        this.menuID=menuID;
-        this.description= description;
-        this.items = new HashMap<Integer, Item>();
+        this.menuID = menuID;
+        this.description = description;
     }
 
     @Override
@@ -27,21 +25,15 @@ public class SubMenu implements Document{
         return description;
     }
 
-    public void addItem(int itemID, Item item) {
-        items.put(itemID, item);
-
-        for(int i = 1; i <= items.size(); i++) {
-            System.out.println(i + ". " + items.get(i).getName() + " is successfully added.");
-        }
+    @Override
+    public void addSubmenu(int submenuID, SubMenu subMenu) {
+        System.out.println("Nothing doing");
     }
 
-    public void removeItem(int itemID) {
-        items.remove(itemID);
-        System.out.println("Successfully removed");
+    @Override
+    public Map<Integer, Document> getSubmenus() {
+        return null;
     }
 
-    public Map<Integer, Item> getItems() {
-        return items;
-    }
 
 }
